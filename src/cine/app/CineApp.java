@@ -22,25 +22,8 @@ public class CineApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
-        cine = PersistenciaCine.cargarDatos();        
+        cine = PersistenciaCine.cargarDatos();   
         
-        if (cine == null) {
-            Sala sala1 = new Sala(1, "El resplandor", 2, 2);
-            Sala sala2 = new Sala(2, "El exorcista", 4, 6);
-            Sala sala3 = new Sala(3, "La llamada", 3, 5);
-            Sala sala4 = new Sala(4, "Halloween", 2, 4);
-            List<Sala> salas = new ArrayList<>();
-            salas.add(sala1);
-            salas.add(sala2);
-            salas.add(sala3);
-            salas.add(sala4);
-            cine = new Cine();
-            cine.agregarSala(sala1);
-            cine.agregarSala(sala2);
-            cine.agregarSala(sala3);
-            cine.agregarSala(sala4);
-        }
-          
         Navegacion navegacion = new Navegacion(stage, cine);
         navegacion.mostrarLogin();
     
