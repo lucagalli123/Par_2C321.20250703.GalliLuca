@@ -46,7 +46,6 @@ public class ButacasView extends VBox {
                 if (butacas[fila][columna].estaOcupada()) {
                     lblButaca.setBackground(new Background(new BackgroundFill(Color.rgb(250, 100, 100), CornerRadii.EMPTY, Insets.EMPTY)));
                 } else {
-                    lblButaca.setMaxSize(120, 120);
                     lblButaca.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
                 }
                 gridPaneMedio.add(lblButaca, columna, fila);
