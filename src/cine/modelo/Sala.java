@@ -72,19 +72,9 @@ public class Sala implements Serializable {
 
     @Override
     public String toString() {
-        return "Sala " + numero + ", pelicula: \"" + pelicula + "\"";
+        return "Sala " + numero + ",  pelicula: \"" + pelicula + "\"";
     }
     
-//    public String toString(boolean verDisponibilidad) {
-//        String texto;
-//        if (estaDisponible()) {
-//            texto = "DISPONIBLE";
-//        } else {
-//            texto = "NO DISPONIBLE";
-//        }
-//        return ("\" , " + "Sala " + numero + ", pelicula: \"" + pelicula + (verDisponibilidad?texto:""));
-//    }
-
     public void seleccionarButaca(int numero) {
         for (int fila = 0; fila < butacas.length; fila++) {
             for (int columna = 0; columna < butacas[fila].length; columna++) {
@@ -111,13 +101,6 @@ public class Sala implements Serializable {
     public void borrarButacaSeleccionada() {
         butacaSeleccionada = null;
     }
-    
-//    public void ocuparUnaButaca() {
-//        cantButacas--;
-//        if (cantButacas == 0) {
-//            disponible = false;
-//        }
-//    }
 
     public boolean hayButacaSeleccionada() {
         return butacaSeleccionada != null;

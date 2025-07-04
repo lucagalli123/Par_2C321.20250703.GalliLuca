@@ -31,7 +31,7 @@ public class Entrada implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente: " + cliente.getNombre() + ", sala: " + sala + ", butaca: " + butaca.getNumero();
+        return sala + ",  butaca: " + butaca.getNumero() + ",  cliente: " + cliente.toString();
     }
     
     
