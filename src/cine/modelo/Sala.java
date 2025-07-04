@@ -25,6 +25,18 @@ public class Sala implements Serializable {
         return numero;
     }
 
+    public boolean salaDisponible() {
+        for (int fila = 0; fila < butacas.length; fila++) {
+            for (int columna = 0; columna < butacas[fila].length; columna++) {
+                Butaca butaca = butacas[fila][columna];
+                if (!butaca.estaOcupada()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
     public String getPelicula() {
         return pelicula;
     }
@@ -37,7 +49,7 @@ public class Sala implements Serializable {
         return butacaSeleccionada;
     }
 
-    public boolean getDisponible() {
+    public boolean estaDisponible() {
         return disponible;
     }
 
@@ -62,6 +74,16 @@ public class Sala implements Serializable {
     public String toString() {
         return "Sala " + numero + ", pelicula: \"" + pelicula + "\"";
     }
+    
+//    public String toString(boolean verDisponibilidad) {
+//        String texto;
+//        if (estaDisponible()) {
+//            texto = "DISPONIBLE";
+//        } else {
+//            texto = "NO DISPONIBLE";
+//        }
+//        return ("\" , " + "Sala " + numero + ", pelicula: \"" + pelicula + (verDisponibilidad?texto:""));
+//    }
 
     public void seleccionarButaca(int numero) {
         for (int fila = 0; fila < butacas.length; fila++) {
@@ -88,6 +110,17 @@ public class Sala implements Serializable {
 
     public void borrarButacaSeleccionada() {
         butacaSeleccionada = null;
+    }
+    
+//    public void ocuparUnaButaca() {
+//        cantButacas--;
+//        if (cantButacas == 0) {
+//            disponible = false;
+//        }
+//    }
+
+    public boolean hayButacaSeleccionada() {
+        return butacaSeleccionada != null;
     }
 
 }

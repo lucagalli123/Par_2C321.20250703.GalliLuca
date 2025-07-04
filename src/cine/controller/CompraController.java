@@ -41,6 +41,7 @@ public class CompraController {
         Butaca butaca = cine.getSalaSeleccionada().getButacaSeleccionada();
         Entrada entrada = new Entrada(cliente, sala, butaca);
         cine.getSalaSeleccionada().getButacaSeleccionada().ocuparButaca();
+//        cine.getSalaSeleccionada().ocuparUnaButaca();
         cine.agregarEntrada(entrada);
     }
     

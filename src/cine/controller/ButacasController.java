@@ -52,4 +52,7 @@ import cine.modelo.Sala;
         return cine.getSalaSeleccionada().butacaOcupada(numero);
     }
       
+    public boolean hayButacaSeleccionada() {
+        return cine.getSalaSeleccionada().hayButacaSeleccionada();
+    }
 }

@@ -8,9 +8,13 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class ButacasView extends VBox {
 
@@ -30,8 +34,8 @@ public class ButacasView extends VBox {
         vboxSuperior.getChildren().addAll(lblPantalla);
       
         GridPane gridPaneMedio = new GridPane();
-        gridPaneMedio.setVgap(40);
-        gridPaneMedio.setHgap(40);
+        gridPaneMedio.setVgap(20);
+        gridPaneMedio.setHgap(20);
         gridPaneMedio.setAlignment(Pos.CENTER);
         
         Butaca[][] butacas = butacasController.getButacas();
@@ -39,6 +43,12 @@ public class ButacasView extends VBox {
         for (int fila = 0; fila < butacas.length; fila++) {
             for (int columna = 0; columna < butacas[fila].length; columna++) {
                 Label lblButaca = new Label(butacas[fila][columna].toString());
+                if (butacas[fila][columna].estaOcupada()) {
+                    lblButaca.setBackground(new Background(new BackgroundFill(Color.rgb(250, 100, 100), CornerRadii.EMPTY, Insets.EMPTY)));
+                } else {
+                    lblButaca.setMaxSize(120, 120);
+                    lblButaca.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+                }
                 gridPaneMedio.add(lblButaca, columna, fila);
             }
         }
@@ -107,7 +117,9 @@ public class ButacasView extends VBox {
         });
         
         btnComprar.setOnAction(e->{
-            butacasController.mostrarCompra();
+            if (butacasController.hayButacaSeleccionada()) {
+                butacasController.mostrarCompra();
+            }
         });
         
         btnVolver.setOnAction(e->{

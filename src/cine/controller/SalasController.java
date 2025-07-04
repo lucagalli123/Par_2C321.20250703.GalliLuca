@@ -39,4 +39,8 @@ public class SalasController {
         return cine.getSalaSeleccionada();
     }
     
+    public boolean salaDisponible(Sala sala) {
+        return sala.salaDisponible();
+    }
+    
 }

@@ -25,7 +25,7 @@ public class CineApp extends Application {
         cine = PersistenciaCine.cargarDatos();        
         
         if (cine == null) {
-            Sala sala1 = new Sala(1, "El resplandor", 4, 6);
+            Sala sala1 = new Sala(1, "El resplandor", 2, 2);
             Sala sala2 = new Sala(2, "El exorcista", 4, 6);
             Sala sala3 = new Sala(3, "La llamada", 3, 5);
             Sala sala4 = new Sala(4, "Halloween", 2, 4);

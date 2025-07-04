@@ -23,6 +23,16 @@ public class Cine implements Serializable {
     public List<Sala> getSalas() {
         return salas;
     }
+    
+//    public List<Sala> getSalasDisponibles() {
+//        List<Sala> salasDisponibles = new ArrayList<>();
+//        for (Sala sala : salas) {
+//            if (sala.estaDisponible()) {
+//                salasDisponibles.add(sala);
+//            }
+//        }
+//        return salasDisponibles;
+//    }
 
     public List<Entrada> getEntradas() {
         return entradas;

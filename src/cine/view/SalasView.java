@@ -5,6 +5,7 @@ import cine.controller.SalasController;
 import cine.modelo.Sala;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -49,8 +50,13 @@ public class SalasView extends VBox {
         
         btbutacas.setOnAction(e->{
             if (salaSeleccionada != null) {
-                salasController.seleccionarSala(salaSeleccionada);               
-                salasController.mostrarButacas();
+                if (salaSeleccionada.salaDisponible()) {
+                    salasController.seleccionarSala(salaSeleccionada);               
+                    salasController.mostrarButacas();
+                } else {
+                    Alert alerta = new Alert(Alert.AlertType.INFORMATION, "NO QUEDAN BUTACAS DISPONIBLES");
+                    alerta.showAndWait();
+                }
             } else {
                 lblMensaje.setText("No selecciono una sala");
             }
